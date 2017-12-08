@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchWeather} from '../actions/index';
 
-export default class SearchBar extends Component{
+class SearchBar extends Component{
     state = {
         term:''
     };
@@ -14,14 +14,15 @@ export default class SearchBar extends Component{
         });
     };
 
-    onSubmitForm = e => {
+    onFormSubmit = e => {
         e.preventDefault()
-
+        this.props.fetchWeather (this.state.term);
+        this.setState({term:''});
     };
 
     render(){
         return(
-            <form className="input-group" onSubmit={this.onSubmitForm}>
+            <form className="input-group" onSubmit={this.onFormSubmit}>
                 <input
                     type="text"
                     onChange={this.onInputChange}
@@ -36,3 +37,9 @@ export default class SearchBar extends Component{
         )
     }
 }
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({fetchWeather}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
