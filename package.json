@@ -16,12 +16,13 @@
     "url": "git@github.com:greenmort/yobaWeather.git"
   },
   "author": "Greenmort",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/greenmort/yobaWeather/issues"
   },
   "homepage": "https://greenmort.github.io/yobaWeather",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -31,6 +32,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-promise": "^0.5.3",
     "styled-components": "^2.2.4"
   },
   "devDependencies": {

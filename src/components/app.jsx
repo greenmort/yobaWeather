@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from '../containers/searchBar'
 import '../styles/main.scss';
 
-class Main extends Component {
+export default class App extends Component {
 
   render() {
     return (
@@ -12,5 +12,3 @@ class Main extends Component {
     );
   }
 }
-
-export default Main;
