@@ -5,12 +5,14 @@ import CityInfo from './cityInfo';
 class WeatherList extends Component{
     renderWeather(){
         return this.props.weather.map(item => {
-            const temps = item.list.map(note => note.main.temp);
-            const press = item.list.map(note => note.main.pressure);
-            const humids = item.list.map(note => note.main.humidity);
-            console.log(item.list[0]);
+            const data = [];
+            item.list.forEach((elem) => {data.push({
+                temp: elem.main.temp,
+                pressure: elem.main.pressure,
+                humidity: elem.main.humidity
+            })});
             return(
-               <CityInfo key={item.city.id} id={item.city.id} item={item} temps={temps} press={press} humids={humids}/>
+                <CityInfo key={item.city.id} id={item.city.id} item={item} data={data}/>
             )
         })
     }

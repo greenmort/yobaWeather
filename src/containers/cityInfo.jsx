@@ -31,13 +31,13 @@ class CityInfo extends Component{
                     <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt = 'icon' />
                 </td>
                 <td>
-                    <Chart data={this.props.temps} color="red"/>
+                    <Chart data={this.props.data} dataKey="temp" color="#FF0000"/>
                 </td>
                 <td>
-                    <Chart data={this.props.press} color="blue"/>
+                    <Chart data={this.props.data} dataKey="pressure" color="#00FF00"/>
                 </td>
                 <td>
-                    <Chart data={this.props.humids} color="green"/>
+                    <Chart data={this.props.data} dataKey="humidity" color="#0000FF"/>
                 </td>
                 <td>{(this.state.mouseOn) ? this.TrashIcon() : <div/>}</td>
             </tr>
