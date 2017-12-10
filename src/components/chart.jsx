@@ -8,14 +8,16 @@ const average = data =>
 const Chart = ({data}) => (
     <div>
         <LineChart width={850} height={200} data={data}>
-            <Line type="monotone" dataKey='temp' stroke="#FF0000"/>
-            <Line type="monotone" dataKey='pressure' stroke="#00FF00"/>
-            <Line type="monotone" dataKey='humidity' stroke="#0000FF"/>
+            <Line type="monotone" dataKey="temp" name="temperature" stroke="#FF0000" yAxisId={0}/>
+            <Line type="monotone" dataKey="pressure" stroke="#00FF00" yAxisId={1}/>
+            <Line type="monotone" dataKey="humidity" stroke="#0000FF" yAxisId={2}/>
             <Tooltip/>
-            <Legend/>
             <XAxis dataKey="date" />
+            <YAxis yAxisId={0} dataKey="temp" domain={['auto', 'auto']} unit={`${String.fromCharCode(176)}C`} stroke="#FF0000" />
+            <YAxis yAxisId={1} dataKey="pressure" domain={['dataMin-10', 'dataMax+10']} stroke="#00FF00"/>
+            <YAxis yAxisId={2} dataKey="humidity" stroke="#0000FF" />
+            <Legend/>
         </LineChart>
-        <div>{String.fromCharCode(176)}</div>
     </div>
 );
 

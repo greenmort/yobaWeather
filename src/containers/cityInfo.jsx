@@ -15,8 +15,11 @@ class CityInfo extends Component{
     };
 
     TrashIcon = (id) => (
-        <div role="button" tabIndex={0} onClick={this.deleteItem} >
-            <i id={id} className="fa fa-minus-circle icon"/>
+        <div role="button" tabIndex={0} >
+            <i id={id} className="fa fa-minus-circle icon"
+               role="button" tabIndex={0}
+               onClick={this.deleteItem}
+               onKeyPress={(e)=>e.target===13 && this.deleteItem()}/>
         </div>
     );
 

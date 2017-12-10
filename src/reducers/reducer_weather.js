@@ -5,7 +5,6 @@ export default function (state = [], action) {
     if(action.error) param = HANDLE_XHR_ERROR;
     switch (param){
         case FETCH_WEATHER:{
-            console.log(action.payload.status);
             return [action.payload.data, ...state];
         }
         case DELETE_CITY:{
