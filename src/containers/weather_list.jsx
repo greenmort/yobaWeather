@@ -9,8 +9,10 @@ class WeatherList extends Component{
             item.list.forEach((elem) => {data.push({
                 temp: elem.main.temp,
                 pressure: elem.main.pressure,
-                humidity: elem.main.humidity
+                humidity: elem.main.humidity,
+                date: new Date(elem.dt_txt).toDateString()
             })});
+            console.log(data);
             return(
                 <CityInfo key={item.city.id} id={item.city.id} item={item} data={data}/>
             )
@@ -24,9 +26,7 @@ class WeatherList extends Component{
                     <tr>
                         <th>City</th>
                         <th>Brief</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>
+                        <th>Weather info</th>
                     </tr>
                 </thead>
                 <tbody>

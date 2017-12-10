@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchWeather} from '../actions/index';
+import '../styles/searchBar.scss';
 
 class SearchBar extends Component{
     state = {
@@ -31,7 +32,7 @@ class SearchBar extends Component{
                     placeholder="give five day forecast"
                 />
                 <span className="input-group-btn">
-                    <button type="submit" className="btn btn-secondary">Submit</button>
+                    <button type="submit" className="btn btn-secondary mybtn">Submit</button>
                 </span>
             </form>
         )
