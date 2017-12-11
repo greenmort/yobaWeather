@@ -25,8 +25,7 @@ function onGetError(err) {
 export function fetchWeather(city) {
   const url = `${ROOT_URL}&q=${city}`;
   return function(dispatch) {
-    axios
-      .get(url)
+    axios.get(url)
       .then(response => {
         dispatch(onGetData(response));
       })
@@ -36,10 +35,10 @@ export function fetchWeather(city) {
   };
 }
 
-export function onCloseDialog(){
-  return{
+export function onCloseDialog() {
+  return {
     type: HIDE_ALERT
-  }
+  };
 }
 
 export function deleteCity(cityID) {

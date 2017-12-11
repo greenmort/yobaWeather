@@ -7,10 +7,10 @@ import '../styles/main.scss';
 export default class App extends Component {
   render() {
     return (
-      <div className="main">
+      <div id="application" className="main">
         <SearchBar />
         <WeatherList />
-          <Errors />
+        <Errors />
       </div>
     );
   }

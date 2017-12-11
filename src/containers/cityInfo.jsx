@@ -3,12 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteCity } from '../actions/index';
 import Chart from '../components/chart';
+import Flag from '../components/flag';
+import { codes } from '../CountryCodes.json';
 import '../styles/cityInfo.scss';
 
 class CityInfo extends Component {
   state = {
     mouseOn: false
   };
+
+  searchCountry() {
+    let name = '';
+    codes.forEach(item => {
+      if (item.code === this.props.item.city.country) ({ name } = item);
+    });
+    return name;
+  }
 
   deleteItem = e => {
     this.props.deleteCity(+e.target.id);
@@ -34,7 +44,13 @@ class CityInfo extends Component {
         onMouseEnter={() => this.setState({ mouseOn: true })}
         onMouseLeave={() => this.setState({ mouseOn: false })}
       >
-        <td>{this.props.item.city.name}</td>
+        <td>
+          {this.props.item.city.name}
+          <br />
+          {this.searchCountry()}
+          <br/>
+          <Flag country={this.props.item.city.country} />
+        </td>
         <td>
           <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />
         </td>
