@@ -1,11 +1,22 @@
-import { HANDLE_XHR_ERROR } from '../actions/index';
+import { SHOW_ALERT, HIDE_ALERT } from '../actions/index';
 
-export default function ErrorReducer(state = [], action) {
+const initialState = {
+    isError: false,
+    errorData: null
+};
+
+export default function ErrorReducer(state = initialState, action) {
   switch (action.type) {
-    case HANDLE_XHR_ERROR:{
-        console.log(state);
-        return [action.payload, ...state];
+    case SHOW_ALERT:{
+        console.log(action.payload);
+        return {
+            isError: true,
+            errorData: action.payload
+        };
     }
+      case HIDE_ALERT:{
+          return initialState;
+      }
     default:
       return state;
   }

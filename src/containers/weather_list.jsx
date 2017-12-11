@@ -20,16 +20,18 @@ class WeatherList extends Component {
 
   render() {
     return (
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>City</th>
-            <th>Brief</th>
-            <th>Five days weather info</th>
-          </tr>
-        </thead>
-        <tbody>{this.renderWeather()}</tbody>
-      </table>
+        <div className="weatherList">
+          <table className="table table-hover">
+            <thead>
+            <tr>
+              <th>City</th>
+              <th>Brief</th>
+              <th>Five days weather info</th>
+            </tr>
+            </thead>
+            <tbody>{this.renderWeather()}</tbody>
+          </table>
+        </div>
     );
   }
 }

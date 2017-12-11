@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from '../containers/searchBar';
-import Errors from '../components/errorWindow';
+import Errors from '../containers/errorWindow';
 import WeatherList from '../containers/weather_list';
 import '../styles/main.scss';
 
@@ -9,8 +9,8 @@ export default class App extends Component {
     return (
       <div className="main">
         <SearchBar />
-        <Errors />
         <WeatherList />
+          <Errors />
       </div>
     );
   }
