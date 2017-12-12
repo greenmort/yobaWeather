@@ -46,8 +46,8 @@ function mapStateToProps({ errors }) {
   return { errors };
 }
 
-function mapDispatch(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ onCloseDialog }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatch)(ErrorWindow);
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorWindow);

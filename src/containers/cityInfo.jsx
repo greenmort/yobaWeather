@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteCity } from '../actions/index';
 import Chart from '../components/chart';
-import Flag from '../components/flag';
+import Flag from '../containers/flag';
 import { codes } from '../CountryCodes.json';
 import '../styles/cityInfo.scss';
 
@@ -41,6 +41,7 @@ class CityInfo extends Component {
     return (
       <tr
         key={this.props.item.city.id}
+        className="cityInfo"
         onMouseEnter={() => this.setState({ mouseOn: true })}
         onMouseLeave={() => this.setState({ mouseOn: false })}
       >
@@ -48,8 +49,8 @@ class CityInfo extends Component {
           {this.props.item.city.name}
           <br />
           {this.searchCountry()}
-          <br/>
-          <Flag country={this.props.item.city.country} />
+          <br />
+          <Flag country={this.props.item.city.country}/>
         </td>
         <td>
           <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />

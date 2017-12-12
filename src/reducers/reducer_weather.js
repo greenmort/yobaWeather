@@ -1,4 +1,4 @@
-import { FETCH_WEATHER, DELETE_CITY } from '../actions/index';
+import { FETCH_WEATHER, DELETE_CITY  } from '../actions/index';
 
 export default function WeatherReducer(state = [], action) {
   switch (action.type) {

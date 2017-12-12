@@ -6,7 +6,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const DELETE_CITY = 'DELETE_CITY';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=${API_KEY}`;
+const WEATHER_URL = `http://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=${API_KEY}`;
 
 function onGetData(response) {
   return {
@@ -23,9 +23,10 @@ function onGetError(err) {
 }
 
 export function fetchWeather(city) {
-  const url = `${ROOT_URL}&q=${city}`;
+  const url = `${WEATHER_URL}&q=${city}`;
   return function(dispatch) {
-    axios.get(url)
+    axios
+      .get(url)
       .then(response => {
         dispatch(onGetData(response));
       })
