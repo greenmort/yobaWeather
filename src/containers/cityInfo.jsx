@@ -12,6 +12,8 @@ class CityInfo extends Component {
     mouseOn: false
   };
 
+  getAverageTemp = () => this.props.data.reduce((sum, cur) => sum + cur.temp, 0) / this.props.data.length;
+
   searchCountry() {
     let name = '';
     codes.forEach(item => {
@@ -29,6 +31,7 @@ class CityInfo extends Component {
       <i
         id={id}
         className="fa fa-minus-circle icon"
+        title="close"
         role="button"
         tabIndex={0}
         onClick={this.deleteItem}
@@ -46,14 +49,20 @@ class CityInfo extends Component {
         onMouseLeave={() => this.setState({ mouseOn: false })}
       >
         <td>
-          {this.props.item.city.name}
-          <br />
-          {this.searchCountry()}
-          <br />
-          <Flag country={this.props.item.city.country}/>
+          <div className="name">
+            <span className="cityName">{this.props.item.city.name}</span>
+            <br />
+            <span className="countryName">{this.searchCountry()}</span>
+            <br />
+            <Flag country={this.props.item.city.country} />
+          </div>
         </td>
         <td>
-          <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />
+            <div className="briefInfo">
+                <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />
+                <br />
+                <span className="averageTemp">{`${Math.round(this.getAverageTemp())}${String.fromCharCode(176)}C`}</span>
+            </div>
         </td>
         <td>
           <Chart data={this.props.data} dataKey="temp" color="#FF0000" />
