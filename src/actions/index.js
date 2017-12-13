@@ -3,7 +3,6 @@ import axios from 'axios';
 const API_KEY = 'e3d9aa32e2860563d568584744d24fd9';
 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
-export const DELETE_CITY = 'DELETE_CITY';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
 
@@ -41,9 +40,19 @@ export function onCloseDialog() {
   };
 }
 
+export const DELETE_CITY = 'DELETE_CITY';
+export const OPEN_MAP = 'OPEN_MAP';
+
 export function deleteCity(cityID) {
   return {
     type: DELETE_CITY,
     payload: cityID
+  };
+}
+
+export function openMap(coord) {
+  return {
+    type: OPEN_MAP,
+    payload: coord
   };
 }

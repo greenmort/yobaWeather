@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteCity } from '../actions/index';
+import { deleteCity, openMap } from '../actions/index';
 import Chart from '../components/chart';
 import Flag from '../containers/flag';
 import { codes } from '../CountryCodes.json';
@@ -48,7 +48,7 @@ class CityInfo extends Component {
         title="see on the map"
         role="button"
         tabIndex={0}
-        onClick={() => null}
+        onClick={() => this.props.openMap(coord)}
         onKeyPress={e => e.target === 13 && (() => null)()}
       />
     </div>
@@ -81,12 +81,6 @@ class CityInfo extends Component {
         <td>
           <Chart data={this.props.data} dataKey="temp" color="#FF0000" />
         </td>
-        {/* <td>
-                    <Chart data={this.props.data} dataKey="pressure" color="#00FF00"/>
-                </td>
-                <td>
-                    <Chart data={this.props.data} dataKey="humidity" color="#0000FF"/>
-                </td> */}
         <td>{this.state.mouseOn ? this.MapIcon(this.props.item.city.coord, this.props.item.city.id) : <div />}</td>
         <td>{this.state.mouseOn ? this.TrashIcon(this.props.item.city.id) : <div />}</td>
       </tr>
@@ -95,7 +89,7 @@ class CityInfo extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ deleteCity }, dispatch);
+  return bindActionCreators(Object.assign({}, { deleteCity }, { openMap }), dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(CityInfo);

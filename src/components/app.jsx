@@ -12,7 +12,7 @@ export default class App extends Component {
         <SearchBar />
         <WeatherList />
         <Errors />
-          <Map isMarkerShown lat={46.0511} lng={14.5051}/>
+        <Map isMarkerShown />
       </div>
     );
   }
