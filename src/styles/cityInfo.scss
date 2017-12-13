@@ -2,10 +2,17 @@
   background-color: #ddd;
 }
 
-.icon{
-  font-size: 30px;
+.trashIcon{
+  font-size: 20px;
   color: firebrick;
-  padding: 30px;
+  padding: 20px;
+  margin-top: 50px;
+}
+.mapIcon{
+  font-size: 20px;
+  color: #31b257;
+  padding: 20px;
+  margin-top: 50px;
 }
 
 .flag{
@@ -32,5 +39,5 @@
 }
 
 .briefInfo{
-
+  margin-top: 30px;
 }

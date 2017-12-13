@@ -3,6 +3,7 @@ import SearchBar from '../containers/searchBar';
 import Errors from '../containers/errorWindow';
 import WeatherList from '../containers/weather_list';
 import '../styles/main.scss';
+import Map from '../containers/map';
 
 export default class App extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class App extends Component {
         <SearchBar />
         <WeatherList />
         <Errors />
+          <Map isMarkerShown lat={46.0511} lng={14.5051}/>
       </div>
     );
   }

@@ -26,14 +26,14 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        // exclude: '/node_modules',
+        exclude: '/node_modules',
         loaders: 'babel-loader'
       },
       {
         enforce: 'pre',
         test: /\.jsx?$/,
-        loaders: 'eslint-loader'
-        // exclude: 'node_modules'
+        loaders: 'eslint-loader',
+        exclude: '/node_modules'
       },
       {
         test: /\.scss$/,

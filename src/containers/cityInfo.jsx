@@ -30,12 +30,26 @@ class CityInfo extends Component {
     <div role="button" tabIndex={0}>
       <i
         id={id}
-        className="fa fa-minus-circle icon"
+        className="fa fa-minus-circle trashIcon"
         title="close"
         role="button"
         tabIndex={0}
         onClick={this.deleteItem}
         onKeyPress={e => e.target === 13 && this.deleteItem()}
+      />
+    </div>
+  );
+
+  MapIcon = (coord, id) => (
+    <div role="button" tabIndex={0}>
+      <i
+        id={id}
+        className="fa fa-map mapIcon"
+        title="see on the map"
+        role="button"
+        tabIndex={0}
+        onClick={() => null}
+        onKeyPress={e => e.target === 13 && (() => null)()}
       />
     </div>
   );
@@ -58,11 +72,11 @@ class CityInfo extends Component {
           </div>
         </td>
         <td>
-            <div className="briefInfo">
-                <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />
-                <br />
-                <span className="averageTemp">{`${Math.round(this.getAverageTemp())}${String.fromCharCode(176)}C`}</span>
-            </div>
+          <div className="briefInfo">
+            <img src={`http://openweathermap.org/img/w/${this.props.item.list[0].weather[0].icon}.png`} alt="icon" />
+            <br />
+            <span className="averageTemp">{`${Math.round(this.getAverageTemp())}${String.fromCharCode(176)}C`}</span>
+          </div>
         </td>
         <td>
           <Chart data={this.props.data} dataKey="temp" color="#FF0000" />
@@ -73,6 +87,7 @@ class CityInfo extends Component {
                 <td>
                     <Chart data={this.props.data} dataKey="humidity" color="#0000FF"/>
                 </td> */}
+        <td>{this.state.mouseOn ? this.MapIcon(this.props.item.city.coord, this.props.item.city.id) : <div />}</td>
         <td>{this.state.mouseOn ? this.TrashIcon(this.props.item.city.id) : <div />}</td>
       </tr>
     );
