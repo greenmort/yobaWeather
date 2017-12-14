@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ const GMap = compose(
   );
 });
 
-class Map extends PureComponent {
+class Map extends Component {
 
   render() {
     if (this.props.map.isSelected)
