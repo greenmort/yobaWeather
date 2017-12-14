@@ -12,7 +12,7 @@ export default class App extends Component {
         <SearchBar />
         <WeatherList />
         <Errors />
-        <Map isMarkerShown />
+        <Map />
       </div>
     );
   }
