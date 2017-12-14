@@ -1,0 +1,91 @@
+.mybtn:hover {
+  cursor: pointer; }
+
+.input-group {
+  margin-bottom: 20px; }
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 150ms ease-out; }
+
+.ReactModal__Content {
+  -webkit-transform: scale(0.5) rotateX(-30deg);
+  transform: scale(0.5) rotateX(-30deg); }
+
+.ReactModal__Content--after-open {
+  -webkit-transform: scale(1) rotateX(0deg);
+  transform: scale(1) rotateX(0deg);
+  transition: all 150ms ease-in; }
+
+.ReactModal__Overlay--before-close {
+  opacity: 0; }
+
+.ReactModal__Content--before-close {
+  -webkit-transform: scale(0.5) rotateX(30deg);
+  transform: scale(0.5) rotateX(30deg);
+  transition: all 150ms ease-in; }
+
+.ReactModal__Content.modal-dialog {
+  border: none;
+  background-color: transparent; }
+.cityInfo {
+  background-color: #ddd; }
+
+.trashIcon {
+  font-size: 20px;
+  color: firebrick;
+  padding: 20px;
+  margin-top: 50px; }
+
+.mapIcon {
+  font-size: 20px;
+  color: #31b257;
+  padding: 20px;
+  margin-top: 50px; }
+
+.flag {
+  width: 75px;
+  height: 50px;
+  margin-top: 20px; }
+
+.cityName {
+  font: 600 24px Roboto; }
+
+.countryName {
+  font: 300 18px Roboto; }
+
+.name {
+  margin: 15px auto;
+  max-width: 190px; }
+
+.averageTemp {
+  font: 600 28px Roboto; }
+
+.briefInfo {
+  margin-top: 30px; }
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px; }
+  .main h1 {
+    font: 600 28px Helvetica;
+    color: red; }
+.googleMap {
+  margin: 30px auto; }
+
+.googleMap:hover {
+  border: 2px solid crimson; }
+
+.closeIcon {
+  position: relative;
+  bottom: 415px;
+  left: 1200px;
+  z-index: 10; }
