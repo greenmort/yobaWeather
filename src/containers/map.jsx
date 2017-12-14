@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {closeMap} from '../actions/index';
 import '../styles/map.scss';
 
 const API_KEY = 'AIzaSyClYNlrajPq73euXfGKja4Y6zZak6btmyQ';
@@ -32,6 +34,13 @@ class Map extends PureComponent {
       return (
           <div className="googleMap">
               <GMap isMarkerShown coord={this.props.map.coord} zoom={this.props.map.zoom} />
+              <i
+                  className="fa fa-times-circle closeIcon"
+                  aria-hidden="true"
+                  role="button"
+                  tabIndex={0}
+                  onClick={()=>this.props.closeMap()}
+              />
           </div>
       );
     return null;
@@ -42,4 +51,8 @@ function mapStateToProps({ map }) {
   return { map };
 }
 
-export default connect(mapStateToProps)(Map);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({closeMap}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);

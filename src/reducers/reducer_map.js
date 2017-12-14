@@ -1,4 +1,4 @@
-import { OPEN_MAP } from '../actions/index';
+import { OPEN_MAP, CLOSE_MAP } from '../actions/index';
 
 const initialState = {
   isSelected: false,
@@ -20,6 +20,8 @@ export default function MapReducer(state = initialState, action) {
         },
           zoom: 12
       };
+      case CLOSE_MAP:
+        return initialState;
     default:
       return state;
   }

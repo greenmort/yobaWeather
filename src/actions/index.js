@@ -5,6 +5,9 @@ const API_KEY = 'e3d9aa32e2860563d568584744d24fd9';
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
+export const DELETE_CITY = 'DELETE_CITY';
+export const OPEN_MAP = 'OPEN_MAP';
+export const CLOSE_MAP = 'CLOSE_MAP';
 
 function onGetData(response) {
   return {
@@ -40,9 +43,6 @@ export function onCloseDialog() {
   };
 }
 
-export const DELETE_CITY = 'DELETE_CITY';
-export const OPEN_MAP = 'OPEN_MAP';
-
 export function deleteCity(cityID) {
   return {
     type: DELETE_CITY,
@@ -54,5 +54,11 @@ export function openMap(coord) {
   return {
     type: OPEN_MAP,
     payload: coord
+  };
+}
+
+export function closeMap(){
+  return{
+    type: CLOSE_MAP
   };
 }
