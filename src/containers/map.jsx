@@ -18,8 +18,7 @@ const GMap = compose(
   withScriptjs,
   withGoogleMap
 )(props => {
-  const { lat } = props.coord;
-  const { lng } = props.coord;
+  const { lat, lng } = props.coord;
   return (
     <GoogleMap zoom={props.zoom} center={{ lat, lng }}>
       <Marker position={{ lat, lng }} />
